@@ -621,7 +621,7 @@ async def txt_handler(bot: Client, m: Message):
         raw_text2 = input2.text
         await input2.delete(True)
     except asyncio.TimeoutError:
-        raw_text2 = '480'
+        raw_text2 = '720'
     quality = f"{raw_text2}p"
     try:
         if raw_text2 == "144":
@@ -963,8 +963,7 @@ async def txt_handler(bot: Client, m: Message):
                     count += 1
                     time.sleep(1)
                 
-            except Exception as e:
-                await m.reply_text(f'⚠️**Downloading Failed**⚠️\n**Name** =>> `{str(count).zfill(3)} {name1}`\n[Url](url) =>> {link0}\n\n<blockquote><b>Failed Reason:\n{str(e)}</b></blockquote>', disable_web_page_preview=True)
+            except Exception
                 count += 1
                 failed_count += 1
                 continue
@@ -973,8 +972,7 @@ async def txt_handler(bot: Client, m: Message):
         await m.reply_text(e)
         time.sleep(2)
 
-    await m.reply_text(f"⋅ ─ Total failed links is {failed_count} ─ ⋅")
-    await m.reply_text(f"⋅ ─ list index ({raw_text}-{len(links)}) out of range ─ ⋅\n\n<blockquote><b>✨BATCH</b> » {b_name}✨</blockquote>\n\n⋅ ─ DOWNLOADING ✩ COMPLETED ─ ⋅")
+    await m.reply_text(f"⋅ ✨BATCH</b> » {b_name}✨</blockquote>\n\n⋅ ─ DOWNLOADING ✩ COMPLETED ─ ⋅")
 
 @bot.on_message(filters.text & filters.private)
 async def text_handler(bot: Client, m: Message):
