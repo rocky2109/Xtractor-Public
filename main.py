@@ -70,9 +70,9 @@ photozip = 'https://envs.sh/cD_.jpg'
 
 
 # Inline keyboard for start command
-BUTTONSCONTACT = InlineKeyboardMarkup([[InlineKeyboardButton(text="📞 Contact", url="https://t.me/saini_contact_bot")]])
+BUTTONSCONTACT = InlineKeyboardMarkup([[InlineKeyboardButton(text="💞 Contact ❤️", url="http://t.me/CHOSEN_ONEx_bot")]])
 keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton(text="🛠️ Help", url="https://t.me/+3k-1zcJxINYwNGZl"), InlineKeyboardButton(text="🛠️ Repo", url="https://github.com/cyberseller999/saini-txt-direct")],
+        [InlineKeyboardButton(text="💎 LevelUp ✈️", url="https://t.me/II_LevelUP_II"), InlineKeyboardButton(text="🛠️ Repo", url="https://github.com/cyberseller999/saini-txt-direct")],
 ])
 
 # Image URLs for the random image feature
@@ -82,7 +82,7 @@ image_urls = [
     # Add more image URLs as needed
 ]
 
-@bot.on_message(filters.command("addauth") & filters.private)
+@bot.on_message(filters.command("add") & filters.private)
 async def add_auth_user(client: Client, message: Message):
     if message.chat.id != OWNER:
         return await message.reply_text("**This command only for bot Owner**")
@@ -450,7 +450,7 @@ async def restart_handler(_, m):
             f"__**Your User id** __- `{m.chat.id}`</blockquote>\n\n"
         )
     else:
-        await m.reply_text("🚦**STOPPED**🚦", True)
+        await m.reply_text("😘 **𝗦𝘁𝗼𝗽𝗽𝗲𝗱 𝗗𝗮𝗿𝗹𝗶𝗻𝗴** 😉", True)
         os.execl(sys.executable, sys.executable, *sys.argv)
         
 @bot.on_message(filters.command(["start"]))
@@ -689,7 +689,7 @@ async def txt_handler(bot: Client, m: Message):
 
     try:
         if raw_text == "1":
-            batch_message = await m.reply_text(f"<blockquote><b>🎯Target Batch : {b_name}</b></blockquote>")
+            batch_message = await m.reply_text(f"<blockquote><b>💎 𝐁𝐚𝐭𝐜𝐡 : {b_name}</b></blockquote>")
             await bot.pin_chat_message(m.chat.id, batch_message.id)
             message_id = batch_message.id
             pinning_message_id = message_id + 1
