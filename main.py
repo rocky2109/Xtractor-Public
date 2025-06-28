@@ -782,13 +782,17 @@ async def txt_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:
-                cc = f'[——— ✦ {str(count).zfill(3)} ✦ ———]({link0})\n\n**🎞️ Title :** `{name1}`\n**├── Extention :**  {CR} .mkv\n**├── Resolution :** [{res}]\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**🌟 Extracted By :** {CR}'
-                cc1 = f'[——— ✦ {str(count).zfill(3)} ✦ ———]({link0})\n\n**📁 Title :** `{name1}`\n**├── Extention :**  {CR} .pdf\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**🌟 Extracted By :** {CR}'
-                cczip = f'[——— ✦ {str(count).zfill(3)} ✦ ———]({link0})\n\n**📁 Title :** `{name1}`\n**├── Extention :**  {CR} .zip\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**🌟 Extracted By :** {CR}'
-                ccimg = f'[——— ✦ {str(count).zfill(3)} ✦ ———]({link0})\n\n**🖼️ Title :** `{name1}`\n**├── Extention :**  {CR} .jpg\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**🌟 Extracted By :** {CR}'
-                ccm = f'[——— ✦ {str(count).zfill(3)} ✦ ———]({link0})\n\n**🎵 Title :** `{name1}`\n**├── Extention :**  {CR} .mp3\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**🌟 Extracted By :** {CR}'
-                cchtml = f'[——— ✦ {str(count).zfill(3)} ✦ ———]({link0})\n\n**🌐 Title :** `{name1}`\n**├── Extention :**  {CR} .html\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**🌟 Extracted By :** {CR}'
+                cc = f'[╭━━━━━━━━━━━╮\n⚝  𝐕ɪᴅᴇⱺ 𝐈𝐃 : {str(count).zfill(3)}\n╰━━━━━━━━━━━╯]({link0})\n\n**🎞️ Title :** `{name1}`\n**├── Extention :**  {CR} .mkv\n**├── Resolution :** [{res}]\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**🌟 Extracted By :** {CR}'
 
+                cc1 = f'[╭━━━━━━━━━━━╮\n⚝  𝐏𝐃𝐅 𝐈𝐃 : {str(count).zfill(3)}\n╰━━━━━━━━━━━╯]({link0})\n\n**📁 Title :** `{name1}`\n**├── Extention :**  {CR} .pdf\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**🌟 Extracted By :** {CR}'
+
+                cczip = f'[╭━━━━━━━━━━━╮\n⚝  𝐙𝐈𝐏 𝐈𝐃 : {str(count).zfill(3)}\n╰━━━━━━━━━━━╯]({link0})\n\n**🗃️ Title :** `{name1}`\n**├── Extention :**  {CR} .zip\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**🌟 Extracted By :** {CR}'
+
+                ccimg = f'[╭━━━━━━━━━━━╮\n⚝  𝐈𝐌𝐆 𝐈𝐃 : {str(count).zfill(3)}\n╰━━━━━━━━━━━╯]({link0})\n\n**🖼️ Title :** `{name1}`\n**├── Extention :**  {CR} .jpg\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**🌟 Extracted By :** {CR}'
+
+                ccm = f'[╭━━━━━━━━━━━╮\n⚝  𝐀𝐔𝐃𝐈𝐎 𝐈𝐃 : {str(count).zfill(3)}\n╰━━━━━━━━━━━╯]({link0})\n\n**🎵 Title :** `{name1}`\n**├── Extention :**  {CR} .mp3\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**🌟 Extracted By :** {CR}'
+
+                cchtml = f'[╭━━━━━━━━━━━╮\n⚝  𝐖𝐄𝐁 𝐈𝐃 : {str(count).zfill(3)}\n╰━━━━━━━━━━━╯]({link0})\n\n**🌐 Title :** `{name1}`\n**├── Extention :**  {CR} .html\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**🌟 Extracted By :** {CR}'
                 if "drive" in url:
                     try:
                         ka = await helper.download(url, name)
@@ -900,13 +904,13 @@ async def txt_handler(bot: Client, m: Message):
                            f'╰━━🖇️𝐔𝐫𝐥 » <a href="{url}">**Api Link**</a>\n' \
                            f"━━━━━━━━━━━━━━━━━━━━━━━━━\n" \
                            f"🛑**Send** /stop **to stop process**\n┃\n" \
-                           f"╰━✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ {CREDIT}"
+                           f"╰━✦⚝ 𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ⚝ {CREDIT}"
                     prog = await m.reply_text(Show, disable_web_page_preview=True)
                     res_file = await helper.download_and_decrypt_video(url, cmd, name, appxkey)  
                     filename = res_file  
                     await prog.delete(True)  
                     await helper.send_vid(bot, m, cc, filename, thumb, name, prog)  
-                    count += 1  
+                    cout += 1  
                     await asyncio.sleep(1)  
                     continue  
 
@@ -927,7 +931,7 @@ async def txt_handler(bot: Client, m: Message):
                            f'╰━━🖇️𝐔𝐫𝐥 » <a href="{url}">**Api Link**</a>\n' \
                            f"━━━━━━━━━━━━━━━━━━━━━━━━━\n" \
                            f"🛑**Send** /stop **to stop process**\n┃\n" \
-                           f"╰━✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ {CREDIT}"
+                           f"╰━⚝ 𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ⚝ {CREDIT}"
                     prog = await m.reply_text(Show, disable_web_page_preview=True)
                     res_file = await helper.decrypt_and_merge_video(mpd, keys_string, path, name, raw_text2)
                     filename = res_file
@@ -954,7 +958,7 @@ async def txt_handler(bot: Client, m: Message):
                            f'╰━━🖇️𝐔𝐫𝐥 » <a href="{url}">**Api Link**</a>\n' \
                            f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" \
                            f"🛑**Send** /stop **to stop process**\n┃\n" \
-                           f"╰━✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ {CREDIT}"
+                           f"╰━⚝ 𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ⚝ {CREDIT}"
                     prog = await m.reply_text(Show, disable_web_page_preview=True)
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
