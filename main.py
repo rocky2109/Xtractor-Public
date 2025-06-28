@@ -781,16 +781,15 @@ async def txt_handler(bot: Client, m: Message):
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
-            try
+            try:
+                cc = f'[——— ⚝ {str(count).zfill(3)} ⚝ ———]({link0})\n\n**🎞️ Title :** `{name1}`\n**├── Extention :**  {CR} .mkv\n**├── Resolution :** [{res}]\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
+                cc1 = f'[——— ⚝ {str(count).zfill(3)} ⚝ ———]({link0})\n\n**📁 Title :** `{name1}`\n**├── Extention :**  {CR} .pdf\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
+                cczip = f'[——— ⚝ {str(count).zfill(3)} ⚝ ———]({link0})\n\n**📁 Title :** `{name1}`\n**├── Extention :**  {CR} .zip\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
+                ccimg = f'[——— ⚝ {str(count).zfill(3)} ⚝ ———]({link0})\n\n**🖼️ Title :** `{name1}`\n**├── Extention :**  {CR} .jpg\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
+                ccm = f'[——— ⚝ {str(count).zfill(3)} ⚝ ———]({link0})\n\n**🎵 Title :** `{name1}`\n**├── Extention :**  {CR} .mp3\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
+                cchtml = f'[——— ⚝ {str(count).zfill(3)} ⚝ ———]({link0})\n\n**🌐 Title :** `{name1}`\n**├── Extention :**  {CR} .html\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n** >𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
 
-                cc = f'🌟────•~❉{str(count).zfill(3)}❉~•────🌟\n\n☘️𝗧𝗶𝘁𝗹𝗲 ➤ {name1}.CHOSEN ONE ⚝.mkv\n\n<pre><code>📚𝗕𝗮𝘁𝗰𝗵 ➤ {b_name}</code></pre>\n\n𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:{CR}**'
-                #cpw = f'**[🎬] 𝗩𝗶𝗱_𝗜𝗱 : {str(count).zfill(3)}.\n\n\n☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲 ➤ {name1}.({res}).𝔗𝔲𝔰𝔥𝔞𝔯.mkv\n\n\n🔗𝗩𝗶𝗱𝗲𝗼 𝗨𝗿𝗹 ➤ <a href="{url}">__Click Here to Watch Video__</a>\n\n\n<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲 ➤ {b_name}</code></pre>\n\n\n📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆 ➤  {CR}**'
-                cyt = f'🌟────•~❉{str(count).zfill(3)}❉~•────🌟\n\n☘️𝗧𝗶𝘁𝗹𝗲 ➤ {name1}.CHOSEN ONE ⚝.mp4\n\n🔗𝗩𝗶𝗱𝗲𝗼 𝗨𝗿𝗹 ➤ <a href="{url}">__Click Here to Watch Video__</a>\n\n\n<pre><code>📚𝗕𝗮𝘁𝗰𝗵: {b_name}</code></pre>\n\n𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆 ➤  {CR}**'
-                cpvod = f'🌟────•~❉{str(count).zfill(3)}❉~•────🌟\n\n☘️𝗧𝗶𝘁𝗹𝗲 ➤ {name1}.CHOSEN ONE ⚝.mkv\n\n🔗𝗩𝗶𝗱𝗲𝗼 𝗨𝗿𝗹 ➤ <a href="{url}">__Click Here to Watch Video__</a>\n\n\n<pre><code>📚𝗕𝗮𝘁𝗰𝗵: {b_name}</code></pre>\n\n𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆 ➤  {CR}**'
-                cimg = f'🌟────•~❉{str(count).zfill(3)}❉~•────🌟\n\n☘️𝗧𝗶𝘁𝗹𝗲 ➤ {name1}.CHOSEN ONE ⚝.jpg\n\n<pre><code>📚𝗕𝗮𝘁𝗰𝗵 ➤ {b_name}</code></pre>\n\n𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆: {CR}**'
-                cczip = f'🌟────•~❉{str(count).zfill(3)}❉~•────🌟\n\n☘️𝗧𝗶𝘁𝗹𝗲 ➤ {name1}.CHOSEN ONE ⚝..zip\n\n<pre><code>📚𝗕𝗮𝘁𝗰𝗵 ➤ {b_name}</code></pre>\n\n𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆: {CR}**'
-                cc1 = f'🌟────•~❉{str(count).zfill(3)}❉~•────🌟\n\n☘️𝗧𝗶𝘁𝗹𝗲 ➤ {name1}.CHOSEN ONE ⚝.pdf\n\n<pre><code>📚𝗕𝗮𝘁𝗰𝗵 ➤ {b_name}</code></pre>\n\n𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆: {CR}**'
-                          if "drive" in url:
+                if "drive" in url:
                     try:
                         ka = await helper.download(url, name)
                         copy = await bot.send_document(chat_id=m.chat.id,document=ka, caption=cc1)
@@ -800,7 +799,7 @@ async def txt_handler(bot: Client, m: Message):
                         await m.reply_text(str(e))
                         time.sleep(e.x)
                         continue    
-  
+                        
                 elif ".pdf" in url:
                     if "cwmediabkt99" in url:
                         max_retries = 15  # Define the maximum number of retries
