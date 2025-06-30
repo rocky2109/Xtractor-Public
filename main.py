@@ -543,7 +543,7 @@ async def send_logs(client: Client, m: Message):  # Correct parameter name
     except Exception as e:
         await m.reply_text(f"Error sending logs:\n<blockquote>{e}</blockquote>")
 
-@bot.on_message(filters.command(["/xtract3"]) )
+@bot.on_message(filters.command(["xtract3"]) )
 async def txt_handler(bot: Client, m: Message):  
     if m.chat.id not in AUTH_USERS and m.chat.id not in CHANNELS_LIST:
         print(f"User ID not in AUTH_USERS", m.chat.id)
