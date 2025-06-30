@@ -77,7 +77,8 @@ keyboard = InlineKeyboardMarkup([
 
 # Image URLs for the random image feature
 image_urls = [
-    "https://jmp.sh/s/5zIcyODwtrZgFm7T3IlJ.mp4",
+    "https://freeimage.host/i/F7C0ib9",
+    " https://freeimage.host/i/F7C06RS",
     "https://freeimage.host/i/F5iVEx4",
     # Add more image URLs as needed
 ]
