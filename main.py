@@ -457,11 +457,11 @@ async def restart_handler(_, m):
 async def start_command(bot: Client, message: Message):
     random_image_url = random.choice(image_urls)
     caption = (
-        f"𝐇𝐞𝐥𝐥𝐨 𝐃𝐞𝐚𝐫 👋!\n\n"
-        f"➠ 𝐈 𝐚𝐦 𝐚 𝐓𝐞𝐱𝐭 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 𝐁𝐨𝐭\n\n"
-        f"➠ Can Extract Videos & PDFs From Your Text File and Upload to Telegram!\n\n"
+        f"Hey Dear 👋!\n\n"
+        f"➠ i am txt xtractor bot\n"
+        f"➠ i Can XtractVideos & PDFs From Your txt File and Upload it Here! 😉\n\n"
         f"➠ For Guide Use Command /help 📖\n\n"
-        f"➠ 𝐌𝐚𝐝𝐞 𝐁𝐲 : {CREDIT} 🦁"
+        f">➠ 𝐌𝐚𝐝𝐞 𝐁𝐲 : {CREDIT} 🦁"
     )
     await bot.send_photo(
         chat_id=message.chat.id,
@@ -499,36 +499,36 @@ async def info(bot: Client, update: Message):
 async def txt_handler(client: Client, m: Message):
     await bot.send_message(m.chat.id, text= (
         f"💥 𝐁𝐎𝐓𝐒 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒\n\n"
-        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n" 
+        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n" 
         f"📌 𝗠𝗮𝗶𝗻 𝗙𝗲𝗮𝘁𝘂𝗿𝗲𝘀:\n\n"  
         f"➥ /start – Bot Status Check\n"
-        f"➥ /drm – Extract from .txt (Auto)\n"
+        f"➥ /xtract3 – Extract from .txt (Auto)\n"
         f"➥ /y2t – YouTube → .txt Converter\n"  
         f"➥ /ytm – YT .txt → .mp3 downloader\n"  
         f"➥ /yt2m – YT link → .mp3 downloader\n"  
         f"➥ /t2t – Text → .txt Generator\n" 
         f"➥ /stop – Cancel Running Task\n"
-        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰ \n" 
+        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰ \n" 
         f"⚙️ 𝗧𝗼𝗼𝗹𝘀 & 𝗦𝗲𝘁𝘁𝗶𝗻𝗴𝘀: \n\n" 
         f"➥ /cookies – Update YT Cookies\n" 
         f"➥ /id – Get Chat/User ID\n"  
         f"➥ /info – User Details\n"  
         f"➥ /logs – View Bot Activity\n"
-        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
+        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
         f"👤 𝐔𝐬𝐞𝐫 𝐀𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜𝐚𝐭𝐢𝐨𝐧: **(OWNER)**\n\n" 
         f"➥ /addauth xxxx – Add User ID\n" 
         f"➥ /remauth xxxx – Remove User ID\n"  
         f"➥ /users – Total User List\n"  
-        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
+        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
         f"📁 𝐂𝐡𝐚𝐧𝐧𝐞𝐥𝐬: **(Auth Users)**\n\n" 
         f"➥ /addchnl -100xxxx – Add\n" 
         f"➥ /remchnl -100xxxx – Remove\n"  
         f"➥ /channels – List - (OWNER)\n"  
-        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
+        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
         f"💡 𝗡𝗼𝘁𝗲:\n\n"  
         f"• Send any link for auto-extraction\n"  
         f"• Supports batch processing\n\n"  
-        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
+        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
         f" ➠ 𝐌𝐚𝐝𝐞 𝐁𝐲 : {CREDIT} 💻\n"
         )
     )                    
@@ -543,7 +543,7 @@ async def send_logs(client: Client, m: Message):  # Correct parameter name
     except Exception as e:
         await m.reply_text(f"Error sending logs:\n<blockquote>{e}</blockquote>")
 
-@bot.on_message(filters.command(["drm"]) )
+@bot.on_message(filters.command(["/xtract3"]) )
 async def txt_handler(bot: Client, m: Message):  
     if m.chat.id not in AUTH_USERS and m.chat.id not in CHANNELS_LIST:
         print(f"User ID not in AUTH_USERS", m.chat.id)
@@ -1186,7 +1186,7 @@ async def text_handler(bot: Client, m: Message):
                 elif 'encrypted.m' in url:    
                     Show = f"**⚡Dᴏᴡɴʟᴏᴀᴅɪɴɢ Sᴛᴀʀᴛᴇᴅ...⏳**\n" \
                            f"🔗𝐋𝐢𝐧𝐤 » {url}\n" \
-                           f"✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ {CREDIT}"
+                           f"⚝ 𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ⚝ {CREDIT}"
                     prog = await m.reply_text(Show, disable_web_page_preview=True)
                     res_file = await helper.download_and_decrypt_video(url, cmd, name, appxkey)  
                     filename = res_file  
