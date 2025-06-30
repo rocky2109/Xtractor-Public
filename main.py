@@ -780,12 +780,64 @@ async def txt_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:
-                cc = f'╭── ⋆⋅⚝⋅⋆ ──╮ {str(count).zfill(3)} ╰── ⋆⋅⚝⋅⋆ ──╯({link0})\n\n**🎞️ Title :** `{name1}`\n**├── Extention :**  {CR} .mkv\n**├── Resolution :** [{res}]\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
-                cc1 = f'╭── ⋆⋅⚝⋅⋆ ──╮ {str(count).zfill(3)} ╰── ⋆⋅⚝⋅⋆ ──╯({link0})\n\n**📁 Title :** `{name1}`\n**├── Extention :**  {CR} .pdf\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
-                cczip = f'╭── ⋆⋅⚝⋅⋆ ──╮ {str(count).zfill(3)} ╰── ⋆⋅⚝⋅⋆ ──╯({link0})\n\n**📁 Title :** `{name1}`\n**├── Extention :**  {CR} .zip\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
-                ccimg = f'[╭── ⋆⋅⚝⋅⋆ ──╮ {str(count).zfill(3)} ╰── ⋆⋅⚝⋅⋆ ──╯]({link0})\n\n**🖼️ Title :** `{name1}`\n**├── Extention :**  {CR} .jpg\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
-                ccm = f'╭── ⋆⋅⚝⋅⋆ ──╮ {str(count).zfill(3)} ╰── ⋆⋅⚝⋅⋆ ──╯({link0})\n\n**🎵 Title :** `{name1}`\n**├── Extention :**  {CR} .mp3\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
-                cchtml = f'╭── ⋆⋅⚝⋅⋆ ──╮ {str(count).zfill(3)} ╰── ⋆⋅⚝⋅⋆ ──╯({link0})\n\n**🌐 Title :** `{name1}`\n**├── Extention :**  {CR} .html\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n** >𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
+                cc = (
+                    f"╭━━━━━━━━━━━━━━━━╮\n"
+                    f"⚝ 𝐕ɪᴅᴇⱺ 𝐈𝐃 : {str(count).zfill(3)}\n"
+                    f"╰━━━━━━━━━━━━━━━━╯\n\n"
+                    f"🎞️ <b>Title:</b> <code>{name1}</code>\n"
+                    f"├── <b>Format:</b> .mkv\n"
+                    f"├── <b>Quality:</b> {res}\n\n"
+                    f"📚 <b>𝐂ⱺᴜʀꜱᴇ:</b> <code>{b_name}</code>\n\n"
+                    f">𖣐 <b>𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:</b> {CR}"
+              )
+
+                cc1 = (
+                    f"╭━━━━━━━━━━━━━━━━╮\n"
+                    f"📄 𝐏𝐃𝐅 𝐈𝐃 : {str(count).zfill(3)}\n"
+                    f"╰━━━━━━━━━━━━━━━━╯\n\n"
+                    f"📁 <b>Title:</b> <code>{name1}</code>.pdf\n\n"
+                    f"📚 <b>𝐂ⱺᴜʀꜱᴇ:</b> <code>{b_name}</code>\n\n"
+                    f">𖣐 <b>𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:</b> {CR}"
+               )
+
+                cczip = (
+                    f"╭━━━━━━━━━━━━━━━━╮\n"
+                    f"📦 𝐅𝐢𝐥𝐞 𝐈𝐃 : {str(count).zfill(3)}\n"
+                    f"╰━━━━━━━━━━━━━━━━╯\n\n"
+                    f"🗂️ <b>Title:</b> <code>{name1}</code>.zip\n\n"
+                    f"📚 <b>𝐂ⱺᴜʀꜱᴇ:</b> <code>{b_name}</code>\n\n"
+                    f">𖣐 <b>𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:</b> {CR}"
+               )
+
+               ccimg = (
+                    f"<a href='{link0}'>╭━━━━━━━━━━━━━━━━╮\n"
+                    f"🖼️ 𝐈𝐌𝐀𝐆𝐄 𝐈𝐃 : {str(count).zfill(3)}\n"
+                    f"╰━━━━━━━━━━━━━━━━╯</a>\n\n"
+                    f"<b>Title:</b> <code>{name1}</code>.jpg\n\n"
+                    f"📚 <b>𝐂ⱺᴜʀꜱᴇ:</b> <code>{b_name}</code>\n\n"
+                    f">𖣐 <b>𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:</b> {CR}"
+                )
+
+                ccm = (
+                    f"╭━━━━━━━━━━━━━━━━╮\n"
+                    f"🎵 𝐀𝐔𝐃𝐈𝐎 𝐈𝐃 : {str(count).zfill(3)}\n"
+                    f"╰━━━━━━━━━━━━━━━━╯\n\n"
+                    f"🎧 <b>Title:</b> <code>{name1}</code>.mp3\n\n"
+                    f"📚 <b>𝐂ⱺᴜʀꜱᴇ:</b> <code>{b_name}</code>\n\n"
+                    f">𖣐 <b>𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:</b> {CR}"
+                )
+
+                cchtml = (
+                    f"╭━━━━━━━━━━━━━━━━╮\n"
+                    f"🌐 𝐇𝐓𝐌𝐋 𝐈𝐃 : {str(count).zfill(3)}\n"
+                    f"╰━━━━━━━━━━━━━━━━╯\n\n"
+                    f"📝 <b>Title:</b> <code>{name1}</code>.html\n\n"
+                    f"📚 <b>𝐂ⱺᴜʀꜱᴇ:</b> <code>{b_name}</code>\n\n"
+                    f">𖣐 <b>𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:</b> {CR}"
+                )
+            
+except Exception as e:
+    print("❌ Caption format error:", e)
 
                 if "drive" in url:
                     try:
