@@ -782,12 +782,12 @@ async def txt_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:
-                cc = f'[——— ⚝ {str(count).zfill(3)} ⚝ ———]({link0})\n\n**🎞️ Title :** `{name1}`\n**├── Extention :**  {CR} .mkv\n**├── Resolution :** [{res}]\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
-                cc1 = f'[——— ⚝ {str(count).zfill(3)} ⚝ ———]({link0})\n\n**📁 Title :** `{name1}`\n**├── Extention :**  {CR} .pdf\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
-                cczip = f'[——— ⚝ {str(count).zfill(3)} ⚝ ———]({link0})\n\n**📁 Title :** `{name1}`\n**├── Extention :**  {CR} .zip\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
-                ccimg = f'[——— ⚝ {str(count).zfill(3)} ⚝ ———]({link0})\n\n**🖼️ Title :** `{name1}`\n**├── Extention :**  {CR} .jpg\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
-                ccm = f'[——— ⚝ {str(count).zfill(3)} ⚝ ———]({link0})\n\n**🎵 Title :** `{name1}`\n**├── Extention :**  {CR} .mp3\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
-                cchtml = f'[——— ⚝ {str(count).zfill(3)} ⚝ ———]({link0})\n\n**🌐 Title :** `{name1}`\n**├── Extention :**  {CR} .html\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n** >𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
+                cc = f'╭── ⋆⋅⚝⋅⋆ ──╮ {str(count).zfill(3)} ╰── ⋆⋅⚝⋅⋆ ──╯({link0})\n\n**🎞️ Title :** `{name1}`\n**├── Extention :**  {CR} .mkv\n**├── Resolution :** [{res}]\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
+                cc1 = f'╭── ⋆⋅⚝⋅⋆ ──╮ {str(count).zfill(3)} ╰── ⋆⋅⚝⋅⋆ ──╯({link0})\n\n**📁 Title :** `{name1}`\n**├── Extention :**  {CR} .pdf\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
+                cczip = f'╭── ⋆⋅⚝⋅⋆ ──╮ {str(count).zfill(3)} ╰── ⋆⋅⚝⋅⋆ ──╯({link0})\n\n**📁 Title :** `{name1}`\n**├── Extention :**  {CR} .zip\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
+                ccimg = f'[╭── ⋆⋅⚝⋅⋆ ──╮ {str(count).zfill(3)} ╰── ⋆⋅⚝⋅⋆ ──╯]({link0})\n\n**🖼️ Title :** `{name1}`\n**├── Extention :**  {CR} .jpg\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
+                ccm = f'╭── ⋆⋅⚝⋅⋆ ──╮ {str(count).zfill(3)} ╰── ⋆⋅⚝⋅⋆ ──╯({link0})\n\n**🎵 Title :** `{name1}`\n**├── Extention :**  {CR} .mp3\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n**>𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
+                cchtml = f'╭── ⋆⋅⚝⋅⋆ ──╮ {str(count).zfill(3)} ╰── ⋆⋅⚝⋅⋆ ──╯({link0})\n\n**🌐 Title :** `{name1}`\n**├── Extention :**  {CR} .html\n\n<blockquote><b>📚 Course :</b> {b_name}</blockquote>\n\n** >𖣐 𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:** {CR}'
 
                 if "drive" in url:
                     try:
@@ -963,7 +963,8 @@ async def txt_handler(bot: Client, m: Message):
                     count += 1
                     time.sleep(1)
                 
-            except Exception
+            except Exception as e:
+                await m.reply_text(f'🫣 **Download Failed**🤧\n**Name** =>> `{str(count).zfill(3)} {name1}`\n[Url](url) =>> {link0}\n\n<blockquote><b>Failed Reason:\n{str(e)}</b></blockquote>', disable_web_page_preview=True)
                 count += 1
                 failed_count += 1
                 continue
