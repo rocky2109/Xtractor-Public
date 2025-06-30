@@ -807,9 +807,10 @@ async def txt_handler(bot: Client, m: Message):
                     f"🗂️ <b>Title:</b> <code>{name1}</code>.zip\n\n"
                     f"📚 <b>𝐂ⱺᴜʀꜱᴇ:</b> <code>{b_name}</code>\n\n"
                     f">𖣐 <b>𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:</b> {CR}"
-               )
-
-               ccimg = (
+                   
+                )
+                
+                ccimg = (
                     f"<a href='{link0}'>╭━━━━━━━━━━━━━━━━╮\n"
                     f"🖼️ 𝐈𝐌𝐀𝐆𝐄 𝐈𝐃 : {str(count).zfill(3)}\n"
                     f"╰━━━━━━━━━━━━━━━━╯</a>\n\n"
