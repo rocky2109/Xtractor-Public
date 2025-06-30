@@ -70,14 +70,14 @@ photozip = 'https://envs.sh/cD_.jpg'
 
 
 # Inline keyboard for start command
-BUTTONSCONTACT = InlineKeyboardMarkup([[InlineKeyboardButton(text="💞 Contact ❤️", url="http://t.me/CHOSEN_ONEx_bot")]])
+BUTTONSCONTACT = InlineKeyboardMarkup([[InlineKeyboardButton(text="💞 Contact 🦁", url="http://t.me/CHOSEN_ONEx_bot")]])
 keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton(text="💎 LevelUp ✈️", url="https://t.me/II_LevelUP_II"), InlineKeyboardButton(text="Support Group 💞", url="https://t.me/GeniusJunctionX")],
+        [InlineKeyboardButton(text="💎 LevelUp ✈️", url="https://t.me/II_LevelUP_II"), InlineKeyboardButton(text="✈️ Support Group 💞", url="https://t.me/GeniusJunctionX")],
 ])
 
 # Image URLs for the random image feature
 image_urls = [
-    "https://jmp.sh/s/5zIcyODwtrZgFm7T3IlJ",
+    "https://jmp.sh/s/5zIcyODwtrZgFm7T3IlJ.mp4",
     "https://freeimage.host/i/F5iVEx4",
     # Add more image URLs as needed
 ]
