@@ -837,9 +837,6 @@ async def txt_handler(bot: Client, m: Message):
                     f">𖣐 <b>𝗫𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆:</b> {CR}"
                 )
             
-except Exception as e:
-    print("❌ Caption format error:", e)
-
                 if "drive" in url:
                     try:
                         ka = await helper.download(url, name)
