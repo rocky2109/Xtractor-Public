@@ -528,8 +528,7 @@ async def start(bot, m: Message):
         await bot.send_photo(
             chat_id=m.chat.id,
             photo=image_url,
-            caption=caption,
-            parse_mode="html",
+            caption=caption,            
             disable_web_page_preview=True,
             reply_markup=BUTTONSCONTACT
         )
