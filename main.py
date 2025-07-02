@@ -54,13 +54,13 @@ bot = Client(
     bot_token=BOT_TOKEN
 )
 
-AUTH_USER = os.environ.get('AUTH_USERS', '5680454765').split(',')
+AUTH_USER = os.environ.get('AUTH_USERS', '6947378236').split(',')
 AUTH_USERS = [int(user_id) for user_id in AUTH_USER]
 if int(OWNER) not in AUTH_USERS:
     AUTH_USERS.append(int(OWNER))
     
 CHANNEL_OWNERS = {}
-CHANNELS = os.environ.get('CHANNELS', '').split(',')
+CHANNELS = os.environ.get('CHANNELS', '-1002460920533').split(',')
 CHANNELS_LIST = [int(channel_id) for channel_id in CHANNELS if channel_id.isdigit()]
 
 cookies_file_path = os.getenv("cookies_file_path", "youtube_cookies.txt")
@@ -515,14 +515,25 @@ async def start(bot, m: Message):
         )
     else:
         await asyncio.sleep(2)
-        await start_message.edit_text(
-           f" 🎉 Welcome Dear {m.from_user.first_name}  🎉\n\n"
-           f"➠ i am txt xtractor bot\n"
-           f"➠ i Can Xtract Videos & PDFs From Your txt File and Upload it Here! 😉\n\n"
-           f">➠ Use /xtract to Extract from .txt (Auto 🚀)\n"
-           f"➠ For Guide Use Command /help 📖\n\n"
-           f"If you face any problem Feel Free to contact -  [𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)\n", disable_web_page_preview=True, reply_markup=BUTTONSCONTACT
+        await start_message.delete()
+
+        image_url = random.choice(image_urls)  # Pick random image
+
+        await bot.send_photo(
+            chat_id=m.chat.id,
+            photo=image_url,
+            caption=(
+                f"🎉 Welcome Dear {m.from_user.first_name} 🎉\n\n"
+                f"➠ I am a TXT Xtractor Bot 🛠️\n"
+                f"➠ I can Xtract Videos, PDFs, ZIPs and upload them here!\n\n"
+                f">➠ Use /xtract to Extract from .txt (Auto 🚀)\n"
+                f"➠ Use /help for Full Guide 📖\n\n"
+                f"🆘 Need help? Contact:  >[𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)"
+            ),
+            disable_web_page_preview=True,
+            reply_markup=BUTTONSCONTACT
         )
+
            
 @bot.on_message(filters.command(["id"]))
 async def id_command(client: Client, message: Message):
