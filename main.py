@@ -39,8 +39,16 @@ import zipfile
 import shutil
 import ffmpeg
 
+import unicodedata
 
-import subprocess
+def clean_filename(filename):
+    # Normalize Unicode to ASCII-safe
+    name = unicodedata.normalize("NFKD", filename).encode("ascii", "ignore").decode("ascii")
+    # Replace spaces and remove unwanted characters
+    name = "".join(c for c in name if c.isalnum() or c in (' ', '_', '-')).rstrip()
+    return name or "downloaded_file"
+
+
 subprocess.run([
     "ffmpeg",
     "-i", "https://media-cdn.classplusapp.com/alisg-cdn-a.classplusapp.com/31245720303171ee988e5401b0ea0102/master.m3u8",
@@ -758,8 +766,9 @@ async def txt_handler(bot: Client, m: Message):
             url = "https://" + Vxy
             link0 = "https://" + Vxy
 
-            name1 = links[i][0].replace("(", "[").replace(")", "]").replace("_", "").replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
-            name = f'{name1[:60]}'
+            raw_title = links[i][0]
+            name = clean_filename(raw_title)[:60]
+
             
             if "visionias" in url:
                 async with ClientSession() as session:
