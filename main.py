@@ -462,22 +462,62 @@ async def restart_handler(_, m):
         os.execl(sys.executable, sys.executable, *sys.argv)
         
 @bot.on_message(filters.command(["start"]))
-async def start_command(bot: Client, message: Message):
-    random_image_url = random.choice(image_urls)
-    caption = (
-        f"Hey Dear 👋!\n\n"
-        f"➠ i am txt xtractor bot\n"
-        f"➠ i Can Xtract Videos & PDFs From Your txt File and Upload it Here! 😉\n\n"
-        f">➠ Use /xtract3 to Extract from .txt (Auto 🚀)\n"
-        f"➠ For Guide Use Command /help 📖\n\n"
-        f">➠ 𝐌𝐚𝐝𝐞 𝐁𝐲: 🦁 {CREDIT}"
+async def start(bot, m: Message):
+    user = await bot.get_me()
+    mention = user.mention
+    start_message = await bot.send_message(
+        m.chat.id,
+        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n"
     )
-    await bot.send_photo(
-        chat_id=message.chat.id,
-        photo=random_image_url,
-        caption=caption,
-        reply_markup=keyboard
+
+    await asyncio.sleep(1)
+    await start_message.edit_text(
+        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f"Initializing Uploader bot... 🤖\n\n"
+        f"Progress:\n [⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️] 0%\n\n"
     )
+
+    await asyncio.sleep(1)
+    await start_message.edit_text(
+        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f"Loading features... ⏳\n\n"
+        f"Progress:\n [🟥🟥🟥⬜️⬜️⬜️⬜️⬜️⬜️⬜️] 25%\n\n"
+    )
+    
+    await asyncio.sleep(1)
+    await start_message.edit_text(
+        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f"This may take a moment, sit back and relax! 😊\n\n"
+        f"Progress:\n [🟧🟧🟧🟧🟧⬜️⬜️⬜️⬜️⬜️] 50%\n\n"
+    )
+
+    await asyncio.sleep(1)
+    await start_message.edit_text(
+        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f"Checking subscription status... 🔍\n\n"
+        f"Progress:\n [🟨🟨🟨🟨🟨🟨🟨🟨⬜️⬜️] 75%\n\n"
+    )
+    await asyncio.sleep(1)
+    await start_message.edit_text(
+        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f"Checking subscription status... 🔍\n\n"
+        f"Progress:\n [🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩] 100%\n\n"
+    )
+
+    await asyncio.sleep(2)
+    if m.chat.id in AUTH_USERS:
+        await start_message.edit_text(
+            f"🌟 Hey Cutie {m.from_user.first_name}! 🌟\n\n" +
+            f"Great! You are a premium member!\n"
+            f"Use Command : /help to get started 🌟\n\n"
+            f"If you face any problem contact -  [𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)\n", disable_web_page_preview=True, reply_markup=BUTTONSCONTACT
+        )
+    else:
+        await asyncio.sleep(2)
+        await start_message.edit_text(
+           f" 🎉 Welcome {m.from_user.first_name} to DRM Bot! 🎉\n\n"
+           f"You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including\n\n"
+        
 
 @bot.on_message(filters.command(["id"]))
 async def id_command(client, message: Message):
