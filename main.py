@@ -478,10 +478,10 @@ async def start(bot, m: Message):
 
     start_message = await bot.send_message(
         m.chat.id,
-        f">🌟 Welcome {m.from_user.first_name}! 🌟\n\n"
+        f">🌟 Welcome {m.from_user.first_name}! 🌟\n\nStarting..."
     )
 
-    # Simulated loading
+    # Simulated animated progress stages
     stages = [
         ("Initializing Uploader bot... 🤖", "⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️", "0%"),
         ("Loading features... ⏳", "🟥🟥🟥⬜️⬜️⬜️⬜️⬜️⬜️⬜️", "25%"),
@@ -493,47 +493,39 @@ async def start(bot, m: Message):
     for msg, bar, percent in stages:
         await asyncio.sleep(1)
         await start_message.edit_text(
-            f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n"
+            f">🌟 Welcome {m.from_user.first_name}! 🌟\n\n"
             f"{msg}\n\n"
-            f"Progress:\n {bar} {percent}"
+            f"Progress:\n{bar} {percent}"
         )
 
     await asyncio.sleep(1.5)
-    await start_message.delete()
 
-    # Random image
-    image_url = choice(image_urls).strip()
-
-    # Caption based on access
+    # Final welcome message (no deletion here)
     if m.chat.id in AUTH_USERS:
-        caption = (
+        final_caption = (
             f"🌟 Hey {m.from_user.first_name}! 🌟\n\n"
-            f"✅ You are an <b>Authorized User</b> 🎖️\n\n"
-            f"➠ Use <code>/xtract</code> to Extract from .txt (Auto 🚀)\n"
-            f"➠ Use <code>/help</code> for Full Guide 📖\n\n"
+            f"✅ You are an <b>Authorized User Cutie </b> 😉\n\n"
+            f"➠ Use <code>/xtract</code> to extract from .txt (Auto 🚀)\n"
+            f"➠ Use <code>/help</code> for full guide 📖\n\n"
             f"👨‍💻 Support: <a href='http://t.me/CHOSEN_ONEx_bot'>𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝</a>"
         )
     else:
-        caption = (
+        final_caption = (
             f"🎉 Welcome Dear {m.from_user.first_name} 🎉\n\n"
             f"➠ I am a <b>TXT Xtractor Bot</b> 🛠️\n"
             f"➠ I can extract <b>Videos, PDFs, ZIPs</b> and upload them here!\n\n"
-            f"➠ Use <code>/xtract</code> to Extract from .txt (Auto 🚀)\n"
-            f"➠ Use <code>/help</code> for Full Guide 📖\n\n"
+            f"➠ Use <code>/xtract</code> to start (Auto 🚀)\n"
+            f"➠ Use <code>/help</code> for full guide 📖\n\n"
             f"🆘 Need help? Contact: "
             f"<a href='http://t.me/CHOSEN_ONEx_bot'>𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝</a>"
         )
 
-    try:
-        await bot.send_photo(
-            chat_id=m.chat.id,
-            photo=image_url,
-            caption=caption,            
-            disable_web_page_preview=True,
-            reply_markup=BUTTONSCONTACT
-        )
-    except Exception as e:
-        await m.reply_text(f"❌ Failed to send start image.\n\n<code>{e}</code>", parse_mode="html")
+    await start_message.edit_text(
+        final_caption,
+        parse_mode="html",
+        disable_web_page_preview=True,
+        reply_markup=BUTTONSCONTACT
+    )
 
            
 @bot.on_message(filters.command(["id"]))
