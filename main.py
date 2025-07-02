@@ -517,19 +517,20 @@ async def start(bot, m: Message):
     if m.chat.id in AUTH_USERS:
         await start_message.edit_text(
             f">🌟 Hey {m.from_user.first_name}! 🌟\n\n"
-            f"✅ You are an <b>Authorized User Cutie</b> 🎖😉\n\n"
-            f"➠ Use /xtract to extract from .txt (Auto 🚀)\n"
+            f"✅ You are an <b>Authorized User Cutie</b> 😉\n\n"
+            f"➠ Use /xtract to extract from .txt (Auto 🚀)\n\n"
             f"➠ Use /help for full guide 📖\n\n"
-            f"If you face any problem contact:  >[𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)\n", disable_web_page_preview=True, reply_markup=BUTTONSCONTACT
+            f">Creator: [𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)\n", disable_web_page_preview=True, reply_markup=BUTTONSCONTACT
         )
         
     else:
         await asyncio.sleep(2)
         await start_message.edit_text(
-            f"> Hey 🌚 {m.from_user.first_name}! 🌝\n\n"            
+            f"> Hey 🌚 {m.from_user.first_name}! 🌝\n\n"
+            f"➠ This bot is just for Testing...💀\n\n"
             f"➠ Use /xtract to extract from .txt (Auto 🚀)\n"
-            f"➠ Use /help for full guide 📖\n\n"
-            f"If you face any problem contact -  [𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)\n", disable_web_page_preview=True, reply_markup=BUTTONSCONTACT
+            f"➠ Use /help for full guide 📖\n\n"            
+            f">Creator: [𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)\n", disable_web_page_preview=True, reply_markup=BUTTONSCONTACT
         )
 
            
