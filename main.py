@@ -469,20 +469,19 @@ async def restart_handler(_, m):
         await m.reply_text(">😘 𝗦𝘁𝗼𝗽𝗽𝗲𝗱 𝗕𝗮𝗯𝘆 🌝", True)
         os.execl(sys.executable, sys.executable, *sys.argv)
         
+
 @bot.on_message(filters.command(["start"]))
 async def start(bot, m: Message):
     from random import choice
-    
-    user = await bot.get_me()
-    mention = user.mention
 
-    # Start progress message
+    user = await bot.get_me()
+
     start_message = await bot.send_message(
         m.chat.id,
         f">🌟 Welcome {m.from_user.first_name}! 🌟\n\n"
     )
 
-    # Progress simulation
+    # Simulated loading
     stages = [
         ("Initializing Uploader bot... 🤖", "⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️", "0%"),
         ("Loading features... ⏳", "🟥🟥🟥⬜️⬜️⬜️⬜️⬜️⬜️⬜️", "25%"),
@@ -496,21 +495,22 @@ async def start(bot, m: Message):
         await start_message.edit_text(
             f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n"
             f"{msg}\n\n"
-            f"Progress:\n {bar} {percent}\n\n"
+            f"Progress:\n {bar} {percent}"
         )
 
-    await asyncio.sleep(2)
+    await asyncio.sleep(1.5)
     await start_message.delete()
 
+    # Random image
     image_url = choice(image_urls).strip()
 
-    # Choose message based on user type
+    # Caption based on access
     if m.chat.id in AUTH_USERS:
         caption = (
-            f"🌟 Hey  {m.from_user.first_name}! 🌟\n\n"
-            f"✅ You are an <b>Authorized User</b> Cutie\n\n"
-            f">➠ Use /xtract to Extract from .txt (Auto 🚀)\n"
-            f"➠ Use /help for Full Guide 📖\n\n"
+            f"🌟 Hey {m.from_user.first_name}! 🌟\n\n"
+            f"✅ You are an <b>Authorized User</b> 🎖️\n\n"
+            f"➠ Use <code>/xtract</code> to Extract from .txt (Auto 🚀)\n"
+            f"➠ Use <code>/help</code> for Full Guide 📖\n\n"
             f"👨‍💻 Support: <a href='http://t.me/CHOSEN_ONEx_bot'>𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝</a>"
         )
     else:
@@ -524,14 +524,17 @@ async def start(bot, m: Message):
             f"<a href='http://t.me/CHOSEN_ONEx_bot'>𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝</a>"
         )
 
-    await bot.send_photo(
-        chat_id=m.chat.id,
-        photo=image_url,
-        caption=caption,
-        parse_mode="html",
-        disable_web_page_preview=True,
-        reply_markup=BUTTONSCONTACT
-    )
+    try:
+        await bot.send_photo(
+            chat_id=m.chat.id,
+            photo=image_url,
+            caption=caption,
+            parse_mode="html",
+            disable_web_page_preview=True,
+            reply_markup=BUTTONSCONTACT
+        )
+    except Exception as e:
+        await m.reply_text(f"❌ Failed to send start image.\n\n<code>{e}</code>", parse_mode="html")
 
            
 @bot.on_message(filters.command(["id"]))
