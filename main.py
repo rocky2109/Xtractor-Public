@@ -458,7 +458,7 @@ async def restart_handler(_, m):
             f"__**Your User id** __- `{m.chat.id}`</blockquote>\n\n"
         )
     else:
-        await m.reply_text("😘 **𝗦𝘁𝗼𝗽𝗽𝗲𝗱 𝗗𝗮𝗿𝗹𝗶𝗻𝗴** 😉", True)
+        await m.reply_text("😘 𝗦𝘁𝗼𝗽𝗽𝗲𝗱 𝗕𝗮𝗯𝘆 🌝", True)
         os.execl(sys.executable, sys.executable, *sys.argv)
         
 @bot.on_message(filters.command(["start"]))
@@ -509,20 +509,27 @@ async def start(bot, m: Message):
         await start_message.edit_text(
             f"🌟 Hey Cutie {m.from_user.first_name}! 🌟\n\n" +
             f"Great! You are a premium member!\n"
+            f">➠ Use /xtract to Extract from .txt (Auto 🚀)\n"
             f"Use Command : /help to get started 🌟\n\n"
             f"If you face any problem contact -  [𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)\n", disable_web_page_preview=True, reply_markup=BUTTONSCONTACT
         )
     else:
         await asyncio.sleep(2)
         await start_message.edit_text(
-           f" 🎉 Welcome {m.from_user.first_name} to DRM Bot! 🎉\n\n"
-           f"You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including\n\n"
-        
-
+           f" 🎉 Welcome Dear {m.from_user.first_name}  🎉\n\n"
+           f"➠ i am txt xtractor bot\n"
+           f"➠ i Can Xtract Videos & PDFs From Your txt File and Upload it Here! 😉\n\n"
+           f">➠ Use /xtract to Extract from .txt (Auto 🚀)\n"
+           f"➠ For Guide Use Command /help 📖\n\n"
+           f"If you face any problem Feel Free to contact -  [𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)\n", disable_web_page_preview=True, reply_markup=BUTTONSCONTACT
+        )
+           
 @bot.on_message(filters.command(["id"]))
-async def id_command(client, message: Message):
+async def id_command(client: Client, message: Message):
     chat_id = message.chat.id
-    await message.reply_text(f"<blockquote>The ID of this chat id is:</blockquote>\n`{chat_id}`")
+    await message.reply_text(
+        f"<blockquote>The ID of this chat is:</blockquote>\n<code>{chat_id}</code>"
+    )
 
 @bot.on_message(filters.private & filters.command(["info"]))
 async def info(bot: Client, update: Message):
