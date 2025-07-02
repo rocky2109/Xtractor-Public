@@ -470,7 +470,6 @@ async def restart_handler(_, m):
         os.execl(sys.executable, sys.executable, *sys.argv)
         
 
-@bot.on_message(filters.command(["start"]))
 @bot.on_message(filters.command("start"))
 async def start(bot, m: Message):
     user = await bot.get_me()
@@ -484,50 +483,54 @@ async def start(bot, m: Message):
     await start_message.edit_text(
         f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
         f"Initializing Uploader bot... 🤖\n\n"
-        f"Progress:\n [⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️] 0%\n\n"
+        f"Progress:\n ⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️ 0%\n\n"
     )
 
     await asyncio.sleep(1)
     await start_message.edit_text(
-        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f">🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
         f"Loading features... ⏳\n\n"
-        f"Progress:\n [🟥🟥🟥⬜️⬜️⬜️⬜️⬜️⬜️⬜️] 25%\n\n"
+        f"Progress:\n 🟥🟥🟥⬜️⬜️⬜️⬜️⬜️⬜️⬜️ 25%\n\n"
     )
     
     await asyncio.sleep(1)
     await start_message.edit_text(
-        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
-        f"This may take a moment, sit back and relax! 😊\n\n"
-        f"Progress:\n [🟧🟧🟧🟧🟧⬜️⬜️⬜️⬜️⬜️] 50%\n\n"
+        f">🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f"This may take a moment 🤫\n\n"
+        f"Progress:\n 🟧🟧🟧🟧🟧⬜️⬜️⬜️⬜️⬜️ 50%\n\n"
     )
 
     await asyncio.sleep(1)
     await start_message.edit_text(
-        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f">🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
         f"Checking subscription status... 🔍\n\n"
-        f"Progress:\n [🟨🟨🟨🟨🟨🟨🟨🟨⬜️⬜️] 75%\n\n"
+        f"Progress:\n 🟨🟨🟨🟨🟨🟨🟨🟨⬜️⬜️ 75%\n\n"
     )
     await asyncio.sleep(1)
     await start_message.edit_text(
-        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f">🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
         f"Checking subscription status... 🔍\n\n"
-        f"Progress:\n [🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩] 100%\n\n"
+        f"Progress:\n 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 100%\n\n"
     )
 
     await asyncio.sleep(2)
     if m.chat.id in AUTH_USERS:
         await start_message.edit_text(
-            f">🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
-            f"Great! You are a premium member!\n"
-            f"Use Command : /help to get started 🌟\n\n"
+            f">🌟 Hey {m.from_user.first_name}! 🌟\n\n"
+            f"✅ You are an <b>Authorized User Cutie</b> 🎖️\n\n"
+            f"➠ Use /xtract to extract from .txt (Auto 🚀)\n"
+            f"➠ Use /help for full guide 📖\n\n"
             f"If you face any problem contact -  [𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)\n", disable_web_page_preview=True, reply_markup=BUTTONSCONTACT
         )
+        
     else:
         await asyncio.sleep(2)
         await start_message.edit_text(
-           f" 🎉 Welcome {m.from_user.first_name} to DRM Bot! 🎉\n\n"
-           f"You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including\n\n"
-    )
+            f"> Hey 🌚 {m.from_user.first_name}! 🌝\n\n"            
+            f"➠ Use /xtract to extract from .txt (Auto 🚀)\n"
+            f"➠ Use /help for full guide 📖\n\n"
+            f"If you face any problem contact -  [𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)\n", disable_web_page_preview=True, reply_markup=BUTTONSCONTACT
+        )
 
            
 @bot.on_message(filters.command(["id"]))
