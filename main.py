@@ -39,6 +39,13 @@ import zipfile
 import shutil
 import ffmpeg
 
+
+import subprocess
+subprocess.run([
+    "ffmpeg",
+    "-i", "https://media-cdn.classplusapp.com/alisg-cdn-a.classplusapp.com/31245720303171ee988e5401b0ea0102/master.m3u8",
+    "-c", "copy", "output.mp4"
+])
 # Initialize the bot
 bot = Client(
     "bot",
@@ -742,7 +749,6 @@ async def txt_handler(bot: Client, m: Message):
                 url = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url={url}', headers={'x-access-token': f'{raw_text4}'}).json()['url']
             
             elif 'media-cdn.classplusapp.com' in url or 'media-cdn-alisg.classplusapp.com' in url or 'media-cdn-a.classplusapp.com' in url: 
-                ffmpeg -i "https://media-cdn.classplusapp.com/alisg-cdn-a.classplusapp.com/31245720303171ee988e5401b0ea0102/master.m3u8" -c copy output.mp4
                 yt-dlp "https://media-cdn.classplusapp.com/alisg-cdn-a.classplusapp.com/31245720303171ee988e5401b0ea0102/master.m3u8"
                 headers = {'host': 'api.classplusapp.com', 'x-access-token': f'{raw_text4}', 'accept-language': 'EN', 'api-version': '18', 'app-version': '1.4.73.2', 'build-number': '35', 'connection': 'Keep-Alive', 'content-type': 'application/json', 'device-details': 'Xiaomi_Redmi 7_SDK-32', 'device-id': 'c28d3cb16bbdac01', 'region': 'IN', 'user-agent': 'Mobile-Android', 'webengage-luid': '00000187-6fe4-5d41-a530-26186858be4c', 'accept-encoding': 'gzip'}
                 params = {"url": f"{url}"}
