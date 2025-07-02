@@ -783,6 +783,8 @@ async def txt_handler(bot: Client, m: Message):
 
             raw_title = links[i][0]
             name = clean_filename(raw_title)[:60]
+            name1 = name  # or use raw_title if you prefer the uncleaned version
+
 
             
             if "visionias" in url:
