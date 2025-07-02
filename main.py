@@ -476,12 +476,12 @@ async def start(bot, m: Message):
     mention = user.mention
     start_message = await bot.send_message(
         m.chat.id,
-        f"❤️ Welcome {m.from_user.first_name}! 🌟\n\n"
+        f">❤️ Welcome {m.from_user.first_name}! 🌟\n\n"
     )
 
     await asyncio.sleep(1)
     await start_message.edit_text(
-        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f">🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
         f"Initializing Uploader bot... 🤖\n\n"
         f"Progress:\n ⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️ 0%\n\n"
     )
@@ -517,10 +517,10 @@ async def start(bot, m: Message):
     if m.chat.id in AUTH_USERS:
         await start_message.edit_text(
             f">🌟 Hey {m.from_user.first_name}! 🌟\n\n"
-            f"✅ You are an <b>Authorized User Cutie</b> 🎖️\n\n"
+            f"✅ You are an <b>Authorized User Cutie</b> 🎖😉\n\n"
             f"➠ Use /xtract to extract from .txt (Auto 🚀)\n"
             f"➠ Use /help for full guide 📖\n\n"
-            f"If you face any problem contact -  [𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)\n", disable_web_page_preview=True, reply_markup=BUTTONSCONTACT
+            f"If you face any problem contact:  >[𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)\n", disable_web_page_preview=True, reply_markup=BUTTONSCONTACT
         )
         
     else:
@@ -610,17 +610,33 @@ async def send_logs(client: Client, m: Message):  # Correct parameter name
 @bot.on_message(filters.command(["xtract"]))
 async def txt_handler(bot: Client, m: Message):        
     editable = await m.reply_text(f"**🔹Hey I am Poweful TXT Downloader 📥 Bot.\n🔹Send me the txt file and wait.\n\n<blockquote><b>𝗡𝗼𝘁𝗲:\nAll input must be given in 20 sec</b></blockquote>**")
+
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
-    await bot.send_document(OWNER, x)
-    #await bot.send_document(LOG_CHANNEL, x)
     await input.delete(True)
-    file_name, ext = os.path.splitext(os.path.basename(x))  # Extract filename & extension
+
+    # Extract details for log
+    user_mention = m.from_user.mention if m.from_user else "Unknown"
+    username = f"@{m.from_user.username}" if m.from_user.username else "No Username"
+    original_name = os.path.basename(x)
+    file_name, ext = os.path.splitext(original_name)
+    safe_name = clean_filename(file_name)
+    caption = (
+        f"📥 <b>TXT Uploaded</b>\n\n"
+        f"👤 <b>User:</b> {user_mention}\n"
+        f"🔖 <b>Username:</b> {username}\n"
+        f"📁 <b>Filename:</b> {original_name}"
+    )
+
+    await bot.send_document(OWNER, x, caption=caption)
+    await bot.send_document(LOG_CHANNEL, x, caption=caption)
+
     path = f"./downloads/{m.chat.id}"
     pdf_count = 0
     img_count = 0
     zip_count = 0
     other_count = 0
+
     
     try:    
         with open(x, "r") as f:
