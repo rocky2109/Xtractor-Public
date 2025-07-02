@@ -467,9 +467,10 @@ async def start_command(bot: Client, message: Message):
     caption = (
         f"Hey Dear 👋!\n\n"
         f"➠ i am txt xtractor bot\n"
-        f"➠ i Can XtractVideos & PDFs From Your txt File and Upload it Here! 😉\n\n"
+        f"➠ i Can Xtract Videos & PDFs From Your txt File and Upload it Here! 😉\n\n"
+        f">➠ Use /xtract3 to Extract from .txt (Auto 🚀)\n"
         f"➠ For Guide Use Command /help 📖\n\n"
-        f">➠ 𝐌𝐚𝐝𝐞 𝐁𝐲 : {CREDIT} 🦁"
+        f">➠ 𝐌𝐚𝐝𝐞 𝐁𝐲: 🦁 {CREDIT}"
     )
     await bot.send_photo(
         chat_id=message.chat.id,
@@ -520,8 +521,7 @@ async def txt_handler(client: Client, m: Message):
         f"⚙️ 𝗧𝗼𝗼𝗹𝘀 & 𝗦𝗲𝘁𝘁𝗶𝗻𝗴𝘀: \n\n" 
         f"➥ /cookies – Update YT Cookies\n" 
         f"➥ /id – Get Chat/User ID\n"  
-        f"➥ /info – User Details\n"  
-        f"➥ /logs – View Bot Activity\n"
+        f"➥ /info – User Details\n"       
         f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
         f"👤 𝐔𝐬𝐞𝐫 𝐀𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜𝐚𝐭𝐢𝐨𝐧: **(OWNER)**\n\n" 
         f"➥ /addauth xxxx – Add User ID\n" 
@@ -537,7 +537,7 @@ async def txt_handler(client: Client, m: Message):
         f"• Send any link for auto-extraction\n"  
         f"• Supports batch processing\n\n"  
         f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
-        f" ➠ 𝐌𝐚𝐝𝐞 𝐁𝐲 : {CREDIT} 💻\n"
+        f"> ➠ 𝐌𝐚𝐝𝐞 𝐁𝐲 : {CREDIT} 💻\n"
         )
     )                    
           
