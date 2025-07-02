@@ -471,60 +471,62 @@ async def restart_handler(_, m):
         
 
 @bot.on_message(filters.command(["start"]))
+@bot.on_message(filters.command("start"))
 async def start(bot, m: Message):
-    from random import choice
-
     user = await bot.get_me()
-
+    mention = user.mention
     start_message = await bot.send_message(
         m.chat.id,
-        f">🌟 Welcome {m.from_user.first_name}! 🌟\n\nStarting..."
+        f"❤️ Welcome {m.from_user.first_name}! 🌟\n\n"
     )
 
-    # Simulated animated progress stages
-    stages = [
-        ("Initializing Uploader bot... 🤖", "⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️", "0%"),
-        ("Loading features... ⏳", "🟥🟥🟥⬜️⬜️⬜️⬜️⬜️⬜️⬜️", "25%"),
-        ("Sit back and relax! 😊", "🟧🟧🟧🟧🟧⬜️⬜️⬜️⬜️⬜️", "50%"),
-        ("Checking subscription status... 🔍", "🟨🟨🟨🟨🟨🟨🟨🟨⬜️⬜️", "75%"),
-        ("Verifying access... 🔓", "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩", "100%")
-    ]
+    await asyncio.sleep(1)
+    await start_message.edit_text(
+        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f"Initializing Uploader bot... 🤖\n\n"
+        f"Progress:\n [⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️] 0%\n\n"
+    )
 
-    for msg, bar, percent in stages:
-        await asyncio.sleep(1)
-        await start_message.edit_text(
-            f">🌟 Welcome {m.from_user.first_name}! 🌟\n\n"
-            f"{msg}\n\n"
-            f"Progress:\n{bar} {percent}"
-        )
+    await asyncio.sleep(1)
+    await start_message.edit_text(
+        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f"Loading features... ⏳\n\n"
+        f"Progress:\n [🟥🟥🟥⬜️⬜️⬜️⬜️⬜️⬜️⬜️] 25%\n\n"
+    )
+    
+    await asyncio.sleep(1)
+    await start_message.edit_text(
+        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f"This may take a moment, sit back and relax! 😊\n\n"
+        f"Progress:\n [🟧🟧🟧🟧🟧⬜️⬜️⬜️⬜️⬜️] 50%\n\n"
+    )
 
-    await asyncio.sleep(1.5)
+    await asyncio.sleep(1)
+    await start_message.edit_text(
+        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f"Checking subscription status... 🔍\n\n"
+        f"Progress:\n [🟨🟨🟨🟨🟨🟨🟨🟨⬜️⬜️] 75%\n\n"
+    )
+    await asyncio.sleep(1)
+    await start_message.edit_text(
+        f"🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+        f"Checking subscription status... 🔍\n\n"
+        f"Progress:\n [🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩] 100%\n\n"
+    )
 
-    # Final welcome message (no deletion here)
+    await asyncio.sleep(2)
     if m.chat.id in AUTH_USERS:
-        final_caption = (
-            f"🌟 Hey {m.from_user.first_name}! 🌟\n\n"
-            f"✅ You are an <b>Authorized User Cutie </b> 😉\n\n"
-            f"➠ Use <code>/xtract</code> to extract from .txt (Auto 🚀)\n"
-            f"➠ Use <code>/help</code> for full guide 📖\n\n"
-            f"👨‍💻 Support: <a href='http://t.me/CHOSEN_ONEx_bot'>𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝</a>"
+        await start_message.edit_text(
+            f">🌟 Welcome {m.from_user.first_name}! 🌟\n\n" +
+            f"Great! You are a premium member!\n"
+            f"Use Command : /help to get started 🌟\n\n"
+            f"If you face any problem contact -  [𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝](http://t.me/CHOSEN_ONEx_bot)\n", disable_web_page_preview=True, reply_markup=BUTTONSCONTACT
         )
     else:
-        final_caption = (
-            f"🎉 Welcome Dear {m.from_user.first_name} 🎉\n\n"
-            f"➠ I am a <b>TXT Xtractor Bot</b> 🛠️\n"
-            f"➠ I can extract <b>Videos, PDFs, ZIPs</b> and upload them here!\n\n"
-            f"➠ Use <code>/xtract</code> to start (Auto 🚀)\n"
-            f"➠ Use <code>/help</code> for full guide 📖\n\n"
-            f"🆘 Need help? Contact: "
-            f"<a href='http://t.me/CHOSEN_ONEx_bot'>𝗖𝗛𝗢𝗦𝗘𝗡 𝗢𝗡𝗘 ⚝</a>"
-        )
-
-    await start_message.edit_text(
-        final_caption,
-        parse_mode="html",
-        disable_web_page_preview=True,
-        reply_markup=BUTTONSCONTACT
+        await asyncio.sleep(2)
+        await start_message.edit_text(
+           f" 🎉 Welcome {m.from_user.first_name} to DRM Bot! 🎉\n\n"
+           f"You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including\n\n"
     )
 
            
