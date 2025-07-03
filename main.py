@@ -629,7 +629,7 @@ async def txt_handler(bot: Client, m: Message):
         f"📁 <b>Filename:</b> {original_name}"
     )
 
-    await bot.send_document(OWNER, x, caption=caption)
+   # await bot.send_document(OWNER, x, caption=caption)
     await bot.send_document(LOG_CHANNEL, x, caption=caption)
 
     path = f"./downloads/{m.chat.id}"
@@ -717,7 +717,7 @@ async def txt_handler(bot: Client, m: Message):
     except Exception:
             res = "UN"
 
-    await editable.edit(f"**🌚 Enter Your Name🌝 or send /d for use default**")
+    await editable.edit(f"**🌚 Enter Your Name 🌝 or send /d for use default**")
     try:
         input3: Message = await bot.listen(editable.chat.id, timeout=20)
         raw_text3 = input3.text
@@ -1012,18 +1012,21 @@ async def txt_handler(bot: Client, m: Message):
                 elif 'encrypted.m' in url:    
                     remaining_links = len(links) - count
                     progress = (count / len(links)) * 100
-                    Show = f"<blockquote>🚀𝐏𝐫𝐨𝐠𝐫𝐞𝐬𝐬 » {progress:.2f}%</blockquote>\n┃\n"
-                           f"┣🔗𝐈𝐧𝐝𝐞𝐱 » {count}/{len(links)}\n┃\n"
-                           f"╰━🖇️𝐑𝐞𝐦𝐚𝐢𝐧 » {remaining_links}\n"
-                           f"━━━━━━━━━━━━━━━━\n"
-                           f"<blockquote><b>⚡ Xᴛʀᴀᴄᴛɪɴɢ Sᴛᴀʀᴛᴇᴅ 🚜</b></blockquote>\n┃\n"
-                           f'┣👑 𝐂𝐫𝐞𝐝𝐢𝐭 » {CR}\n┃\n'
-                           f"╰━📚𝐁𝐚𝐭𝐜𝐡 » {b_name}\n"
-                           f"<blockquote>📚𝐓𝐢𝐭𝐥𝐞 » {name}</blockquote>\n┃\n"
-                           f"┣🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {res}\n┃\n"
-                           f"━━━━━━━━━━━━━━━━\n"
-                           f"🛑**Send** /stop **to stop process**\n┃\n"
-                           f"╰━>⚝ 𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ⚝ {CREDIT}"
+                    Show = f"<blockquote>🚀𝐏𝐫𝐨𝐠𝐫𝐞𝐬𝐬 » {progress:.2f}%</blockquote>\n┃\n" \
+                           f"┣🔗𝐈𝐧𝐝𝐞𝐱 » {count}/{len(links)}\n┃\n" \
+                           f"╰━🖇️𝐑𝐞𝐦𝐚𝐢𝐧 » {remaining_links}\n" \
+                           f"━━━━━━━━━━━━━━━━\n" \
+                           f"<blockquote><b>⚡Dᴏᴡɴʟᴏᴀᴅɪɴɢ Eɴᴄʀʏᴘᴛᴇᴅ Sᴛᴀʀᴛᴇᴅ...⏳</b></blockquote>\n┃\n" \
+                           f'┣💃𝐂𝐫𝐞𝐝𝐢𝐭 » {CR}\n┃\n' \
+                           f"╰━📚𝐁𝐚𝐭𝐜𝐡 » {b_name}\n" \
+                           f"━━━━━━━━━━━━━━━━━\n" \
+                           f"<blockquote>📚𝐓𝐢𝐭𝐥𝐞 » {name}</blockquote>\n┃\n" \
+                           f"┣🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {quality}\n┃\n" \
+                           f'┣━🔗𝐋𝐢𝐧𝐤 » <a href="{link0}">**Original Link**</a>\n┃\n' \
+                           f'╰━━🖇️𝐔𝐫𝐥 » <a href="{url}">**Api Link**</a>\n' \
+                           f"━━━━━━━━━━━━━━━━\n" \
+                           f"🛑**Send** /stop **to stop process**\n┃\n" \
+                           f"╰━✦⚝ 𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ⚝ {CREDIT}"
                     prog = await m.reply_text(Show, disable_web_page_preview=True)
                     res_file = await helper.download_and_decrypt_video(url, cmd, name, appxkey)  
                     filename = res_file  
@@ -1040,14 +1043,17 @@ async def txt_handler(bot: Client, m: Message):
                            f"┣🔗𝐈𝐧𝐝𝐞𝐱 » {count}/{len(links)}\n┃\n" \
                            f"╰━🖇️𝐑𝐞𝐦𝐚𝐢𝐧 » {remaining_links}\n" \
                            f"━━━━━━━━━━━━━━━━━\n" \
-                           f"<blockquote><b>⚡ Xᴛʀᴀᴄᴛɪɴɢ Sᴛᴀʀᴛᴇᴅ 🚜</b></blockquote>\n┃\n" \
+                           f"<blockquote><b>⚡Dᴏᴡɴʟᴏᴀᴅɪɴɢ Eɴᴄʀʏᴘᴛᴇᴅ Sᴛᴀʀᴛᴇᴅ...⏳</b></blockquote>\n┃\n" \
                            f'┣💃𝐂𝐫𝐞𝐝𝐢𝐭 » {CR}\n┃\n' \
                            f"╰━📚𝐁𝐚𝐭𝐜𝐡 » {b_name}\n" \
+                           f"━━━━━━━━━━━━━━━━━\n" \
                            f"<blockquote>📚𝐓𝐢𝐭𝐥𝐞 » {name}</blockquote>\n┃\n" \
-                           f"┣🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {res}\n┃\n" \
+                           f"┣🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {quality}\n┃\n" \
+                           f'┣━🔗𝐋𝐢𝐧𝐤 » <a href="{link0}">**Original Link**</a>\n┃\n' \
+                           f'╰━━🖇️𝐔𝐫𝐥 » <a href="{url}">**Api Link**</a>\n' \
                            f"━━━━━━━━━━━━━━━━━\n" \
                            f"🛑**Send** /stop **to stop process**\n┃\n" \
-                           f"╰━>⚝ 𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ⚝ {CREDIT}"
+                           f"╰━⚝ 𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ⚝ {CREDIT}"
                     prog = await m.reply_text(Show, disable_web_page_preview=True)
                     res_file = await helper.decrypt_and_merge_video(mpd, keys_string, path, name, raw_text2)
                     filename = res_file
@@ -1064,11 +1070,14 @@ async def txt_handler(bot: Client, m: Message):
                            f"┣🔗𝐈𝐧𝐝𝐞𝐱 » {count}/{len(links)}\n┃\n" \
                            f"╰━🖇️𝐑𝐞𝐦𝐚𝐢𝐧 » {remaining_links}\n" \
                            f"━━━━━━━━━━━━━━━━━━━━\n" \
-                           f"<blockquote><b>⚡ Xᴛʀᴀᴄᴛɪɴɢ Sᴛᴀʀᴛᴇᴅ 🚜</b></blockquote>\n┃\n" \
+                           f"<blockquote><b>⚡Dᴏᴡɴʟᴏᴀᴅɪɴɢ Eɴᴄʀʏᴘᴛᴇᴅ Sᴛᴀʀᴛᴇᴅ...⏳</b></blockquote>\n┃\n" \
                            f'┣💃𝐂𝐫𝐞𝐝𝐢𝐭 » {CR}\n┃\n' \
                            f"╰━📚𝐁𝐚𝐭𝐜𝐡 » {b_name}\n" \
+                           f"━━━━━━━━━━━━━━━━━━━━━\n" \
                            f"<blockquote>📚𝐓𝐢𝐭𝐥𝐞 » {name}</blockquote>\n┃\n" \
-                           f"┣🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {res}\n┃\n" \
+                           f"┣🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {quality}\n┃\n" \
+                           f'┣━🔗𝐋𝐢𝐧𝐤 » <a href="{link0}">**Original Link**</a>\n┃\n' \
+                           f'╰━━🖇️𝐔𝐫𝐥 » <a href="{url}">**Api Link**</a>\n' \
                            f"━━━━━━━━━━━━━━━━━━━━\n" \
                            f"🛑**Send** /stop **to stop process**\n┃\n" \
                            f"╰━⚝ 𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ⚝ {CREDIT}"
@@ -1085,6 +1094,7 @@ async def txt_handler(bot: Client, m: Message):
                 count += 1
                 failed_count += 1
                 continue
+
 
     except Exception as e:
         await m.reply_text(e)
