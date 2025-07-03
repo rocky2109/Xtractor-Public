@@ -455,8 +455,7 @@ async def yt2m_handler(bot: Client, m: Message):
 
 
 @bot.on_message(filters.command(["stop"]) )
-async def restart_handler(_, m):
-    if m.chat.id not in AUTH_USERS:
+async def stop_handler(_, m: Message):
         print(f"User ID not in AUTH_USERS", m.chat.id)
         await bot.send_message(
             m.chat.id, 
