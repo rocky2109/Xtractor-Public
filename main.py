@@ -456,28 +456,8 @@ async def yt2m_handler(bot: Client, m: Message):
 
 @bot.on_message(filters.command(["stop"]))
 async def stop_handler(_, m: Message):
-    try:
-        # For all users - stop their current operations
-        user_id = m.from_user.id
-        
-        # This should be defined at the top of your file
-        global user_tasks
-        if not 'user_tasks' in globals():
-            user_tasks = {}
-        
-        # Cancel all tasks for this user
-        if user_id in user_tasks:
-            for task in user_tasks[user_id]:
-                task.cancel()
-            del user_tasks[user_id]
-            await m.reply("😘 𝗦𝘁𝗼𝗽𝗽𝗲𝗱 𝗕𝗮𝗯𝘆 🌝", quote=True)
-        else:
-            await m.reply("ℹ️ No active downloads found for your account", quote=True)
-            
-    except Exception as e:
-        logging.error(f"Stop command error: {str(e)}")
-        await m.reply("❌ Failed to stop downloads. Please try again.", quote=True)
-        
+    await m.reply_text(">😘 𝗦𝘁𝗼𝗽𝗽𝗲𝗱 𝗕𝗮𝗯𝘆 🌝", True)
+    os.execl(sys.executable, sys.executable, *sys.argv)
 
 @bot.on_message(filters.command("start"))
 async def start(bot, m: Message):
