@@ -1012,17 +1012,17 @@ async def txt_handler(bot: Client, m: Message):
                 elif 'encrypted.m' in url:    
                     remaining_links = len(links) - count
                     progress = (count / len(links)) * 100
-                    Show = f"<blockquote>🚀𝐏𝐫𝐨𝐠𝐫𝐞𝐬𝐬 » {progress:.2f}%</blockquote>\n┃\n" \
-                           f"┣🔗𝐈𝐧𝐝𝐞𝐱 » {count}/{len(links)}\n┃\n" \
-                           f"╰━🖇️𝐑𝐞𝐦𝐚𝐢𝐧 » {remaining_links}\n" \
-                           f"━━━━━━━━━━━━━━━━\n" \
-                           f"<blockquote><b>⚡ Xᴛʀᴀᴄᴛɪɴɢ Sᴛᴀʀᴛᴇᴅ 🚜</b></blockquote>\n┃\n" \
-                           f'┣👑 𝐂𝐫𝐞𝐝𝐢𝐭 » {CR}\n┃\n' \
-                           f"╰━📚𝐁𝐚𝐭𝐜𝐡 » {b_name}\n" \
-                           f"<blockquote>📚𝐓𝐢𝐭𝐥𝐞 » {name}</blockquote>\n┃\n" \
-                           f"┣🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {res}\n┃\n" \
-                           f"━━━━━━━━━━━━━━━━\n" \
-                           f"🛑**Send** /stop **to stop process**\n┃\n" \
+                    Show = f"<blockquote>🚀𝐏𝐫𝐨𝐠𝐫𝐞𝐬𝐬 » {progress:.2f}%</blockquote>\n┃\n"
+                           f"┣🔗𝐈𝐧𝐝𝐞𝐱 » {count}/{len(links)}\n┃\n"
+                           f"╰━🖇️𝐑𝐞𝐦𝐚𝐢𝐧 » {remaining_links}\n"
+                           f"━━━━━━━━━━━━━━━━\n"
+                           f"<blockquote><b>⚡ Xᴛʀᴀᴄᴛɪɴɢ Sᴛᴀʀᴛᴇᴅ 🚜</b></blockquote>\n┃\n"
+                           f'┣👑 𝐂𝐫𝐞𝐝𝐢𝐭 » {CR}\n┃\n'
+                           f"╰━📚𝐁𝐚𝐭𝐜𝐡 » {b_name}\n"
+                           f"<blockquote>📚𝐓𝐢𝐭𝐥𝐞 » {name}</blockquote>\n┃\n"
+                           f"┣🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {res}\n┃\n"
+                           f"━━━━━━━━━━━━━━━━\n"
+                           f"🛑**Send** /stop **to stop process**\n┃\n"
                            f"╰━>⚝ 𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ⚝ {CREDIT}"
                     prog = await m.reply_text(Show, disable_web_page_preview=True)
                     res_file = await helper.download_and_decrypt_video(url, cmd, name, appxkey)  
