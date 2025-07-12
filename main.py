@@ -1235,32 +1235,45 @@ async def text_handler(bot: Client, m: Message):
                         retry_delay = 4  # Delay between retries in seconds
                         success = False  # To track whether the download was successful
                         failure_msgs = []  # To keep track of failure messages
-                        
+
+                        safe_url = url.replace(" ", "%20")
+                        pdf_path = f"{name}.pdf"
+
                         for attempt in range(max_retries):
                             try:
                                 await asyncio.sleep(retry_delay)
-                                url = url.replace(" ", "%20")
                                 scraper = cloudscraper.create_scraper()
-                                response = scraper.get(url)
+                                response = scraper.get(safe_url)
 
                                 if response.status_code == 200:
-                                    with open(f'{name}.pdf', 'wb') as file:
+                                    with open(pdf_path, 'wb') as file:
                                         file.write(response.content)
-                                    await asyncio.sleep(retry_delay)  # Optional, to prevent spamming
-                                    copy = await bot.send_document(chat_id=m.chat.id, document=f'{name}.pdf', caption=cc1)
-                                    os.remove(f'{name}.pdf')
-                                    success = True
-                                    break  # Exit the retry loop if successful
+                                    await asyncio.sleep(retry_delay)  # Optional, can be removed if not needed
+                                    try:
+                                        await bot.send_document(
+                                            chat_id=m.chat.id,
+                                            document=pdf_path,
+                                            caption=cc1,
+                                            message_thread_id=getattr(m, "message_thread_id", None)
+                                        )
+                                        success = True
+                                        break  # Exit the retry loop if successful
+                                    finally:
+                                        if os.path.exists(pdf_path):
+                                            os.remove(pdf_path)
                                 else:
-                                    failure_msg = await m.reply_text(f"Attempt {attempt + 1}/{max_retries} failed: {response.status_code} {response.reason}")
+                                    failure_msg = await m.reply_text(
+                                        f"Attempt {attempt + 1}/{max_retries} failed: {response.status_code} {response.reason}"
+                                    )
                                     failure_msgs.append(failure_msg)
-                                    
+
                             except Exception as e:
-                                failure_msg = await m.reply_text(f"Attempt {attempt + 1}/{max_retries} failed: {str(e)}")
+                                failure_msg = await m.reply_text(
+                                    f"Attempt {attempt + 1}/{max_retries} failed: {str(e)}"
+                                )
                                 failure_msgs.append(failure_msg)
                                 await asyncio.sleep(retry_delay)
                                 continue  # Retry the next attempt if an exception occurs
-
                         # Delete all failure messages if the PDF is successfully downloaded
                         for msg in failure_msgs:
                             await msg.delete()
